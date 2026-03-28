@@ -1,0 +1,11 @@
+.env
+.netlify
+.hugo_build.lock
+node_modules
+public
+resources
+.superpowers
+.idea
+.vscode
+netlify.toml
+docs/superpowers
