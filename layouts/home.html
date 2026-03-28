@@ -1,0 +1,119 @@
+{{ define "main" }}
+<!-- Hero Section — always dark -->
+<section class="tq-hero">
+  <div class="tq-hero-inner">
+    <h1 class="tq-hero-headline">{{ .Title }}</h1>
+    <p class="tq-hero-lead">{{ .Params.lead }}</p>
+    <div class="tq-hero-ctas">
+      <a class="tq-btn-outline" href="/manifesto/">Read the manifesto</a>
+      <a class="tq-link-muted" href="https://github.com/tessariq/tessariq" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+<!-- Thesis -->
+<section class="tq-section">
+  <div class="tq-section-inner">
+    <div class="tq-section-label">Why this exists</div>
+    <div class="tq-prose">
+      {{ .Content }}
+    </div>
+    <a class="tq-link" href="/manifesto/">Read the full manifesto →</a>
+  </div>
+</section>
+
+<hr class="tq-divider">
+
+<!-- Principles -->
+<section class="tq-section">
+  <div class="tq-section-inner">
+    <div class="tq-section-label">Principles</div>
+    <div class="tq-principles">
+      <div class="tq-principle">
+        <h3>Git-native</h3>
+        <p>All results flow through normal Git review. History, branching, collaboration — the tools you already trust.</p>
+      </div>
+      <div class="tq-principle">
+        <h3>Detached by default</h3>
+        <p>Runs happen in isolated workspaces. Your working tree stays untouched until you decide to promote.</p>
+      </div>
+      <div class="tq-principle">
+        <h3>Evidence-first</h3>
+        <p>Every run produces durable artifacts — diffs, logs, manifests — that you can inspect, debug, and automate against.</p>
+      </div>
+      <div class="tq-principle">
+        <h3>Safe by default</h3>
+        <p>Sandboxed execution with proxy-controlled egress. Unsafe behavior requires explicit opt-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="tq-divider">
+
+<!-- Artifact Showcase -->
+<section class="tq-section">
+  <div class="tq-section-inner">
+    <div class="tq-section-label">What a run leaves behind</div>
+    <div class="tq-artifact">
+      <pre><code><span class="tq-path">.tessariq/runs/01JQ…/</span>
+├── manifest.json      <span class="tq-comment"># run metadata, adapter, egress config</span>
+├── status.json        <span class="tq-comment"># lifecycle state, timing, exit code</span>
+├── workspace.json     <span class="tq-comment"># workspace mode, base SHA, reproducibility</span>
+├── task.md            <span class="tq-comment"># the original task, versioned</span>
+├── diff.patch         <span class="tq-comment"># what changed</span>
+├── diffstat.txt       <span class="tq-comment"># change statistics</span>
+├── run.log            <span class="tq-comment"># full agent output</span>
+└── runner.log         <span class="tq-comment"># container lifecycle</span></code></pre>
+    </div>
+    <p class="tq-caption">Every artifact is JSON, Markdown, or plain text. No proprietary formats. No database required.</p>
+  </div>
+</section>
+
+<hr class="tq-divider">
+
+<!-- From the Lab -->
+<section class="tq-section">
+  <div class="tq-section-inner">
+    <div class="tq-section-label">From the lab</div>
+    <div class="tq-lab-posts">
+      {{ $posts := where .Site.RegularPages "Section" "blog" }}
+      {{ $posts = first 3 $posts }}
+      {{ range $posts }}
+      <div class="tq-lab-post">
+        {{ with .Params.post_type }}<div class="tq-post-type">{{ . }}</div>{{ end }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <div class="tq-post-meta">{{ .Date.Format "January 2006" }}</div>
+        {{ with .Params.summary }}<p class="tq-post-excerpt">{{ . }}</p>{{ end }}
+      </div>
+      {{ end }}
+      {{ if not $posts }}
+      <p class="tq-post-excerpt">No posts yet. Check back soon.</p>
+      {{ end }}
+    </div>
+    <div class="tq-lab-more">
+      <a class="tq-link" href="/blog/">All posts →</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-footer" }}
+<!-- Custom footer -->
+<footer class="tq-footer">
+  <div class="tq-footer-inner">
+    <div class="tq-footer-left">
+      A project by Felix
+    </div>
+    <div class="tq-footer-right">
+      <a href="https://github.com/tessariq/tessariq" target="_blank" rel="noopener">GitHub</a>
+      <a href="/manifesto/">Manifesto</a>
+      <a href="/index.xml">RSS</a>
+      <span class="tq-footer-sep">·</span>
+      <a href="/legal/">Legal Notice</a>
+    </div>
+  </div>
+</footer>
+{{ end }}
