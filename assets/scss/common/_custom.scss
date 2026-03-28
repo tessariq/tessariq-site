@@ -1,0 +1,317 @@
+// ============================================
+// Tessariq Homepage Styles
+// ============================================
+
+// --- Wordmark ---
+.navbar-brand {
+  font-family: $font-family-wordmark;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  font-size: 0.85rem;
+}
+
+// --- Hero Section (always dark) ---
+.tq-hero {
+  background: #0c0c0f;
+  padding: 56px 40px 48px;
+  margin-top: -1px;
+}
+
+.tq-hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.tq-hero-headline {
+  color: #fff;
+  font-family: $font-family-sans-serif;
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.tq-hero-lead {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 520px;
+  margin-bottom: 0;
+}
+
+.tq-hero-ctas {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.tq-btn-outline {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+}
+
+.tq-link-muted {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// --- Light Body Sections ---
+.tq-section {
+  background: var(--bs-body-bg);
+}
+
+.tq-section-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem;
+}
+
+.tq-section-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $tq-petrol-light;
+  margin-bottom: 1.25rem;
+
+  [data-bs-theme="dark"] & {
+    color: $tq-petrol-dark;
+  }
+}
+
+.tq-divider {
+  max-width: 640px;
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid var(--bs-border-color);
+  opacity: 1;
+}
+
+// --- Thesis / Prose ---
+.tq-prose {
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--bs-body-color);
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+}
+
+.tq-link {
+  color: $tq-petrol-light;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  [data-bs-theme="dark"] & {
+    color: $tq-petrol-dark;
+  }
+}
+
+// --- Principles ---
+.tq-principles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tq-principle {
+  h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--bs-heading-color, var(--bs-body-color));
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 0.8125rem;
+    color: var(--bs-secondary-color);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+}
+
+// --- Artifact Showcase ---
+.tq-artifact {
+  background: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+
+  pre {
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  code {
+    font-size: 0.78125rem;
+    line-height: 1.7;
+    color: var(--bs-body-color);
+  }
+}
+
+.tq-path {
+  color: $tq-petrol-light;
+
+  [data-bs-theme="dark"] & {
+    color: $tq-petrol-dark;
+  }
+}
+
+.tq-comment {
+  color: var(--bs-secondary-color);
+}
+
+.tq-caption {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--bs-secondary-color);
+}
+
+// --- From the Lab ---
+.tq-lab-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tq-lab-post {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--bs-border-color);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.tq-post-type {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $tq-petrol-light;
+  margin-bottom: 0.25rem;
+
+  [data-bs-theme="dark"] & {
+    color: $tq-petrol-dark;
+  }
+}
+
+.tq-lab-post h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+
+  a {
+    color: var(--bs-heading-color, var(--bs-body-color));
+    text-decoration: none;
+
+    &:hover {
+      color: $tq-petrol-light;
+
+      [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+      }
+    }
+  }
+}
+
+.tq-post-meta {
+  font-size: 0.75rem;
+  color: var(--bs-secondary-color);
+}
+
+.tq-post-excerpt {
+  font-size: 0.8125rem;
+  color: var(--bs-secondary-color);
+  margin-top: 0.375rem;
+  line-height: 1.55;
+}
+
+.tq-lab-more {
+  margin-top: 1.5rem;
+}
+
+// --- Footer ---
+.tq-footer {
+  border-top: 1px solid var(--bs-border-color);
+  padding: 1.75rem 2.5rem;
+}
+
+.tq-footer-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+
+.tq-footer-left {
+  font-size: 0.75rem;
+  color: var(--bs-secondary-color);
+  font-weight: 300;
+}
+
+.tq-footer-right {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+
+  a {
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
+    text-decoration: none;
+
+    &:hover {
+      color: $tq-petrol-light;
+
+      [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+      }
+    }
+  }
+}
+
+.tq-footer-sep {
+  color: var(--bs-border-color);
+}
