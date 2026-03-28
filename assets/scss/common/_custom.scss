@@ -2,6 +2,91 @@
 // Tessariq Homepage Styles
 // ============================================
 
+// --- Global: thinner icon strokes ---
+.icon-tabler {
+  stroke-width: 1.5 !important;
+}
+
+// --- Brand color enforcement ---
+// Light mode: $tq-petrol-light (#155e75) for all accents
+// Dark mode: $tq-petrol-dark (#0891b2) for all accents
+// Doks hardcodes $link-color-dark: hsl(224, 100%, 85%) — override everything here.
+
+// Light mode — override Bootstrap defaults
+:root,
+[data-bs-theme="light"] {
+  --bs-primary: #{$tq-petrol-light};
+  --bs-primary-rgb: 21, 94, 117;
+  --bs-link-color: #{$tq-petrol-light};
+  --bs-link-color-rgb: 21, 94, 117;
+  --bs-link-hover-color: #{$tq-petrol-light};
+  --bs-link-hover-color-rgb: 21, 94, 117;
+}
+
+// Dark mode — override Bootstrap + Doks dark accent colors
+// Doks hardcodes $link-color-dark: hsl(224,100%,85%) with @include color-mode(dark).
+// We must use !important to win the specificity battle.
+[data-bs-theme="dark"] {
+  --bs-primary: #{$tq-petrol-dark};
+  --bs-primary-rgb: 8, 145, 178;
+  --bs-link-color: #{$tq-petrol-dark};
+  --bs-link-color-rgb: 8, 145, 178;
+  --bs-link-hover-color: #{$tq-petrol-dark};
+  --bs-link-hover-color-rgb: 8, 145, 178;
+
+  // Global link color override — exclude nav elements and hero links
+  a:not(.nav-link):not(.navbar-brand):not(.social-link):not(.tq-btn-outline):not(.tq-link-muted):not(.dropdown-item) {
+    color: $tq-petrol-dark !important;
+  }
+
+  // Sidebar/page nav links should be body-colored, not accent
+  .btn-toggle-nav a,
+  .page-links a,
+  .showcase-meta a {
+    color: inherit !important;
+  }
+
+  // Hover/active states for navigation
+  .offcanvas .nav-link:hover,
+  .offcanvas .nav-link:focus,
+  .offcanvas .nav-link.active,
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link:focus,
+  .navbar-light .navbar-nav .nav-link.active,
+  .btn-toggle-nav a:hover,
+  .btn-toggle-nav a:focus,
+  .page-links a:hover,
+  .showcase-meta a:hover,
+  .show > .btn-doks-light,
+  .btn-doks-light:hover,
+  .btn-doks-light:active,
+  .alert-doks a {
+    color: $tq-petrol-dark !important;
+  }
+
+  // Buttons
+  .btn-primary {
+    background-color: $tq-petrol-dark !important;
+    border-color: $tq-petrol-dark !important;
+    color: #0c0c0f !important;
+  }
+
+  .btn-outline-primary {
+    color: $tq-petrol-dark !important;
+    border-color: $tq-petrol-dark !important;
+
+    &:hover {
+      background-color: $tq-petrol-dark !important;
+      color: #0c0c0f !important;
+    }
+  }
+
+  // Page nav border
+  .page-links a:hover {
+    border-color: $tq-petrol-dark !important;
+  }
+}
+
 // --- Wordmark ---
 .navbar-brand {
   font-family: $font-family-wordmark;
@@ -48,10 +133,11 @@
   align-items: center;
 }
 
+// Hero links must override Bootstrap's default a { color: var(--bs-link-color) }
 .tq-btn-outline {
   display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: #fff !important;
   padding: 0.5rem 1.25rem;
   border-radius: 4px;
   font-size: 0.8125rem;
@@ -61,18 +147,18 @@
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.4);
-    color: #fff;
+    color: #fff !important;
   }
 }
 
 .tq-link-muted {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5) !important;
   font-size: 0.8125rem;
   font-weight: 400;
   text-decoration: none;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7) !important;
   }
 }
 
@@ -111,7 +197,7 @@
 // --- Thesis / Prose ---
 .tq-prose {
   p {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.75;
     color: var(--bs-body-color);
     margin-bottom: 1rem;
@@ -154,7 +240,7 @@
   }
 
   p {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--bs-secondary-color);
     line-height: 1.55;
     margin-bottom: 0;
@@ -256,7 +342,7 @@
 }
 
 .tq-post-excerpt {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--bs-secondary-color);
   margin-top: 0.375rem;
   line-height: 1.55;
@@ -339,10 +425,19 @@
     }
   }
 
-  // Dark state: homepage at top (blends with hero)
-  &.tq-nav-dark {
+  // Dark nav state — applied via CSS on homepage (no JS flash),
+  // and toggled by JS on scroll. Uses both .tq-nav-dark (JS) and
+  // .home body class (CSS default) to avoid flicker.
+  &.tq-nav-dark,
+  .home & {
     background: #0c0c0f !important;
-    border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: none !important;
+    border-bottom-color: transparent !important;
+
+    .navbar {
+      background-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
 
     .navbar-brand {
       color: rgba(255, 255, 255, 0.6) !important;
@@ -356,12 +451,10 @@
       }
     }
 
-    // Color mode toggle button
     #buttonColorMode {
       color: rgba(255, 255, 255, 0.5) !important;
     }
 
-    // Social links
     .social-link {
       color: rgba(255, 255, 255, 0.35) !important;
 
@@ -370,25 +463,68 @@
       }
     }
 
-    // Search button
     #searchToggleMobile,
     #searchToggleDesktop {
       color: rgba(255, 255, 255, 0.5) !important;
     }
   }
+
+  // When JS has scrolled past hero, remove dark state even on homepage
+  &.tq-nav-light {
+    background: rgba(var(--bs-body-bg-rgb), 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom-color: var(--bs-border-color) !important;
+
+    .navbar {
+      background-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+
+    .navbar-brand {
+      color: $tq-petrol-light !important;
+
+      [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark !important;
+      }
+    }
+
+    .nav-link {
+      color: var(--bs-nav-link-color) !important;
+
+      &.active {
+        color: var(--bs-heading-color, var(--bs-body-color)) !important;
+      }
+    }
+
+    #buttonColorMode {
+      color: var(--bs-nav-link-color) !important;
+    }
+
+    .social-link {
+      color: var(--bs-nav-link-color) !important;
+    }
+
+    #searchToggleMobile,
+    #searchToggleDesktop {
+      color: var(--bs-nav-link-color) !important;
+    }
+  }
 }
 
-// Hide default Doks footer when on homepage (we use custom footer)
-.home .footer {
-  display: none;
-}
-
-// Remove the wrap container padding on homepage to allow full-width hero
-.home .wrap {
-  padding: 0;
+// Remove all container constraints on homepage for full-width hero
+.home .wrap.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: none !important;
 
   .content {
     max-width: none;
     padding: 0;
+  }
+
+  // Doks adds an inner .container that constrains max-width
+  .content > .container {
+    max-width: none !important;
+    padding: 0 !important;
   }
 }

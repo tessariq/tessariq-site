@@ -1,6 +1,6 @@
 ---
 title: Legal Notice
-description: "Legal notice and Impressum for Tessariq."
+description: "Legal notice for the Tessariq website."
 toc: false
 ---
 

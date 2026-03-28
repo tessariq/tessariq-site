@@ -23,8 +23,3 @@
   name = "Legal Notice"
   url = "/legal/"
   weight = 10
-
-[[footer]]
-  name = "Privacy Policy"
-  url = "/privacy/"
-  weight = 20
