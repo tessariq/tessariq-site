@@ -315,3 +315,80 @@
 .tq-footer-sep {
   color: var(--bs-border-color);
 }
+
+// --- Nav Dark/Light Transition ---
+.sticky-top {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  // Default state: light nav (inner pages + scrolled past hero)
+  background: rgba(var(--bs-body-bg-rgb), 0.92);
+  backdrop-filter: blur(12px);
+
+  .navbar-brand {
+    color: $tq-petrol-light;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link {
+    transition: color 0.3s ease;
+  }
+
+  [data-bs-theme="dark"] & {
+    .navbar-brand {
+      color: $tq-petrol-dark;
+    }
+  }
+
+  // Dark state: homepage at top (blends with hero)
+  &.tq-nav-dark {
+    background: #0c0c0f !important;
+    border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+
+    .navbar-brand {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.5) !important;
+
+      &.active {
+        color: #fff !important;
+      }
+    }
+
+    // Color mode toggle button
+    #buttonColorMode {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    // Social links
+    .social-link {
+      color: rgba(255, 255, 255, 0.35) !important;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.7) !important;
+      }
+    }
+
+    // Search button
+    #searchToggleMobile,
+    #searchToggleDesktop {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+}
+
+// Hide default Doks footer when on homepage (we use custom footer)
+.home .footer {
+  display: none;
+}
+
+// Remove the wrap container padding on homepage to allow full-width hero
+.home .wrap {
+  padding: 0;
+
+  .content {
+    max-width: none;
+    padding: 0;
+  }
+}
