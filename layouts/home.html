@@ -2,7 +2,15 @@
 <!-- Hero Section — always dark -->
 <section class="tq-hero">
   <div class="tq-hero-inner">
-    <h1 class="tq-hero-headline">{{ .Title }}</h1>
+    {{ $headlineParts := split (replaceRE "\\.\\s+" ".|" .Title) "|" }}
+    <h1 class="tq-hero-headline">
+      {{ range $headlineParts }}
+        {{ $headlinePart := trim . " " }}
+        {{ if $headlinePart }}
+          <span class="tq-hero-headline-line">{{ $headlinePart }}</span>
+        {{ end }}
+      {{ end }}
+    </h1>
     <p class="tq-hero-lead">{{ .Params.lead }}</p>
     <div class="tq-hero-ctas">
       <a class="tq-btn-outline" href="/manifesto/">Read the manifesto</a>
