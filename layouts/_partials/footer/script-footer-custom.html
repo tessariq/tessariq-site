@@ -1,16 +1,4 @@
 <script>
-// Replace navbar-brand text with the canonical SVG lockups.
-(function() {
-  var brand = document.querySelector('.navbar-brand');
-  if (!brand) return;
-  brand.setAttribute('aria-label', 'Tessariq');
-  brand.innerHTML =
-    '<img class="tq-brand-lockup tq-brand-lockup--petrol-light" src="/logo/lockup-horizontal-petrol-light.svg" alt="" aria-hidden="true" width="112" height="24">' +
-    '<img class="tq-brand-lockup tq-brand-lockup--petrol-dark" src="/logo/lockup-horizontal-petrol-dark.svg" alt="" aria-hidden="true" width="112" height="24">' +
-    '<img class="tq-brand-lockup tq-brand-lockup--mono-dark" src="/logo/lockup-horizontal-mono-dark.svg" alt="" aria-hidden="true" width="112" height="24">' +
-    '<span class="visually-hidden">Tessariq</span>';
-})();
-
 // Nav dark-to-light transition on homepage
 // CSS defaults to dark nav on .home pages (no flicker).
 // JS adds .tq-nav-light when scrolled past hero to override.
@@ -32,5 +20,59 @@
     { threshold: 0, rootMargin: '-56px 0px 0px 0px' }
   );
   observer.observe(hero);
+})();
+
+// Ensure the mobile offcanvas backdrop is fully removed after dismissing
+// the main menu by clicking outside it.
+(function() {
+  var mainNav = document.getElementById('offcanvasNavMain');
+  if (!mainNav) return;
+  var mainNavBackdropCycle = 0;
+
+  function hasActiveOffcanvas() {
+    return Boolean(document.querySelector('.offcanvas.show, .offcanvas.showing, .offcanvas.hiding'));
+  }
+
+  function restoreBootstrapStyle(target, styleProperty, dataAttribute) {
+    var elements = typeof target === 'string' ? document.querySelectorAll(target) : [target];
+
+    elements.forEach(function(element) {
+      if (!element) return;
+
+      var savedValue = element.getAttribute(dataAttribute);
+      if (savedValue === null) {
+        element.style.removeProperty(styleProperty);
+        return;
+      }
+
+      element.style.setProperty(styleProperty, savedValue);
+      element.removeAttribute(dataAttribute);
+    });
+  }
+
+  function cleanupOffcanvasState(expectedCycle) {
+    if (expectedCycle !== mainNavBackdropCycle || hasActiveOffcanvas()) return;
+
+    document.querySelectorAll('.offcanvas-backdrop').forEach(function(backdrop) {
+      backdrop.remove();
+    });
+
+    restoreBootstrapStyle(document.body, 'overflow', 'data-bs-overflow');
+    restoreBootstrapStyle(document.body, 'padding-right', 'data-bs-padding-right');
+    restoreBootstrapStyle('.fixed-top, .fixed-bottom, .is-fixed, .sticky-top', 'padding-right', 'data-bs-padding-right');
+    restoreBootstrapStyle('.sticky-top', 'margin-right', 'data-bs-margin-right');
+  }
+
+  mainNav.addEventListener('show.bs.offcanvas', function() {
+    mainNavBackdropCycle += 1;
+  });
+
+  mainNav.addEventListener('hidden.bs.offcanvas', function() {
+    var cleanupCycle = mainNavBackdropCycle;
+
+    window.requestAnimationFrame(function() {
+      cleanupOffcanvasState(cleanupCycle);
+    });
+  });
 })();
 </script>

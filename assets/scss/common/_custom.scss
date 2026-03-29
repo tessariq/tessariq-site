@@ -4,7 +4,7 @@
 
 // --- Global: thinner icon strokes ---
 .icon-tabler {
-  stroke-width: 1.5 !important;
+    stroke-width: 1.5 !important;
 }
 
 // --- Brand color enforcement ---
@@ -15,343 +15,341 @@
 // Light mode — override Bootstrap defaults
 :root,
 [data-bs-theme="light"] {
-  --bs-primary: #{$tq-petrol-light};
-  --bs-primary-rgb: 21, 94, 117;
-  --bs-body-bg: #{$tq-ui-bg-light};
-  --bs-body-bg-rgb: 250, 250, 248;
-  --bs-body-color: #{$tq-ui-text-light};
-  --bs-body-color-rgb: 17, 17, 17;
-  --bs-heading-color: #{$tq-ui-text-light};
-  --bs-emphasis-color: #{$tq-ui-text-light};
-  --bs-secondary-bg: #{$tq-ui-surface-light};
-  --bs-secondary-bg-rgb: 244, 241, 235;
-  --bs-secondary-color: #{$tq-ui-muted-light};
-  --bs-secondary-color-rgb: 17, 17, 17;
-  --bs-tertiary-bg: #{$tq-ui-surface-light};
-  --bs-tertiary-bg-rgb: 244, 241, 235;
-  --bs-border-color: #{$tq-ui-border-light};
-  --bs-link-color: #{$tq-petrol-light};
-  --bs-link-color-rgb: 21, 94, 117;
-  --bs-link-hover-color: #{$tq-petrol-light};
-  --bs-link-hover-color-rgb: 21, 94, 117;
-  --bs-nav-link-color: #{$tq-ui-muted-light};
+    --bs-primary: #{$tq-petrol-light};
+    --bs-primary-rgb: 21, 94, 117;
+    --bs-body-bg: #{$tq-ui-bg-light};
+    --bs-body-bg-rgb: 250, 250, 248;
+    --bs-body-color: #{$tq-ui-text-light};
+    --bs-body-color-rgb: 17, 17, 17;
+    --bs-heading-color: #{$tq-ui-text-light};
+    --bs-emphasis-color: #{$tq-ui-text-light};
+    --bs-secondary-bg: #{$tq-ui-surface-light};
+    --bs-secondary-bg-rgb: 244, 241, 235;
+    --bs-secondary-color: #{$tq-ui-muted-light};
+    --bs-secondary-color-rgb: 17, 17, 17;
+    --bs-tertiary-bg: #{$tq-ui-surface-light};
+    --bs-tertiary-bg-rgb: 244, 241, 235;
+    --bs-border-color: #{$tq-ui-border-light};
+    --bs-link-color: #{$tq-petrol-light};
+    --bs-link-color-rgb: 21, 94, 117;
+    --bs-link-hover-color: #{$tq-petrol-light};
+    --bs-link-hover-color-rgb: 21, 94, 117;
+    --bs-nav-link-color: #{$tq-ui-muted-light};
 }
 
 // Dark mode — override Bootstrap + Doks dark accent colors
 // Doks hardcodes $link-color-dark: hsl(224,100%,85%) with @include color-mode(dark).
 // We must use !important to win the specificity battle.
 [data-bs-theme="dark"] {
-  --bs-primary: #{$tq-petrol-dark};
-  --bs-primary-rgb: 8, 145, 178;
-  --bs-body-bg: #{$tq-ui-bg-dark};
-  --bs-body-bg-rgb: 17, 17, 23;
-  --bs-body-color: #{$tq-ui-text-dark};
-  --bs-body-color-rgb: 236, 232, 225;
-  --bs-heading-color: #{$tq-ui-text-dark};
-  --bs-emphasis-color: #{$tq-ui-text-dark};
-  --bs-secondary-bg: #{$tq-ui-surface-dark};
-  --bs-secondary-bg-rgb: 23, 24, 33;
-  --bs-secondary-color: #{$tq-ui-muted-dark};
-  --bs-secondary-color-rgb: 236, 232, 225;
-  --bs-tertiary-bg: #{$tq-ui-surface-dark};
-  --bs-tertiary-bg-rgb: 23, 24, 33;
-  --bs-border-color: #{$tq-ui-border-dark};
-  --bs-link-color: #{$tq-petrol-dark};
-  --bs-link-color-rgb: 8, 145, 178;
-  --bs-link-hover-color: #{$tq-petrol-dark};
-  --bs-link-hover-color-rgb: 8, 145, 178;
-  --bs-nav-link-color: #{$tq-ui-muted-dark};
+    --bs-primary: #{$tq-petrol-dark};
+    --bs-primary-rgb: 8, 145, 178;
+    --bs-body-bg: #{$tq-ui-bg-dark};
+    --bs-body-bg-rgb: 17, 17, 23;
+    --bs-body-color: #{$tq-ui-text-dark};
+    --bs-body-color-rgb: 236, 232, 225;
+    --bs-heading-color: #{$tq-ui-text-dark};
+    --bs-emphasis-color: #{$tq-ui-text-dark};
+    --bs-secondary-bg: #{$tq-ui-surface-dark};
+    --bs-secondary-bg-rgb: 23, 24, 33;
+    --bs-secondary-color: #{$tq-ui-muted-dark};
+    --bs-secondary-color-rgb: 236, 232, 225;
+    --bs-tertiary-bg: #{$tq-ui-surface-dark};
+    --bs-tertiary-bg-rgb: 23, 24, 33;
+    --bs-border-color: #{$tq-ui-border-dark};
+    --bs-link-color: #{$tq-petrol-dark};
+    --bs-link-color-rgb: 8, 145, 178;
+    --bs-link-hover-color: #{$tq-petrol-dark};
+    --bs-link-hover-color-rgb: 8, 145, 178;
+    --bs-nav-link-color: #{$tq-ui-muted-dark};
 
-  // Global link color override — exclude nav elements and hero links
-  a:not(.nav-link):not(.navbar-brand):not(.social-link):not(.tq-btn-outline):not(.tq-link-muted):not(.dropdown-item) {
-    color: $tq-petrol-dark !important;
-  }
-
-  // Sidebar/page nav links should be body-colored, not accent
-  .btn-toggle-nav a,
-  .page-links a,
-  .showcase-meta a {
-    color: inherit !important;
-  }
-
-  // Hover/active states for navigation
-  .offcanvas .nav-link:hover,
-  .offcanvas .nav-link:focus,
-  .offcanvas .nav-link.active,
-  .navbar-light .navbar-nav .nav-link:hover,
-  .navbar-light .navbar-nav .nav-link:focus,
-  .navbar-light .navbar-nav .nav-link.active,
-  .btn-toggle-nav a:hover,
-  .btn-toggle-nav a:focus,
-  .page-links a:hover,
-  .showcase-meta a:hover,
-  .show > .btn-doks-light,
-  .btn-doks-light:hover,
-  .btn-doks-light:active,
-  .alert-doks a {
-    color: $tq-petrol-dark !important;
-  }
-
-  // Buttons
-  .btn-primary {
-    background-color: $tq-petrol-dark !important;
-    border-color: $tq-petrol-dark !important;
-    color: #0c0c0f !important;
-  }
-
-  .btn-outline-primary {
-    color: $tq-petrol-dark !important;
-    border-color: $tq-petrol-dark !important;
-
-    &:hover {
-      background-color: $tq-petrol-dark !important;
-      color: #0c0c0f !important;
+    // Global link color override — exclude nav elements and hero links
+    a:not(.nav-link):not(.navbar-brand):not(.social-link):not(.tq-btn-outline):not(.tq-link-muted):not(.dropdown-item) {
+        color: $tq-petrol-dark !important;
     }
-  }
 
-  // Page nav border
-  .page-links a:hover {
-    border-color: $tq-petrol-dark !important;
-  }
+    // Sidebar/page nav links should be body-colored, not accent
+    .btn-toggle-nav a,
+    .page-links a,
+    .showcase-meta a {
+        color: inherit !important;
+    }
+
+    // Hover/active states for navigation
+    .offcanvas .nav-link:hover,
+    .offcanvas .nav-link:focus,
+    .offcanvas .nav-link.active,
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link.active,
+    .btn-toggle-nav a:hover,
+    .btn-toggle-nav a:focus,
+    .page-links a:hover,
+    .showcase-meta a:hover,
+    .show > .btn-doks-light,
+    .btn-doks-light:hover,
+    .btn-doks-light:active,
+    .alert-doks a {
+        color: $tq-petrol-dark !important;
+    }
+
+    // Buttons
+    .btn-primary {
+        background-color: $tq-petrol-dark !important;
+        border-color: $tq-petrol-dark !important;
+        color: #0c0c0f !important;
+    }
+
+    .btn-outline-primary {
+        color: $tq-petrol-dark !important;
+        border-color: $tq-petrol-dark !important;
+
+        &:hover {
+            background-color: $tq-petrol-dark !important;
+            color: #0c0c0f !important;
+        }
+    }
+
+    // Page nav border
+    .page-links a:hover {
+        border-color: $tq-petrol-dark !important;
+    }
 }
 
 // --- Wordmark ---
 .navbar-brand {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.5rem;
-  font-family: $font-family-wordmark;
-  font-weight: 300;
-  letter-spacing: 0.18em;
-  text-transform: lowercase;
-  font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.5rem;
+    font-family: $font-family-wordmark;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+    font-size: 0.85rem;
 }
 
 .tq-brand-lockup {
-  display: none;
-  width: auto;
-  height: 1.125rem;
-  flex: none;
+    display: none;
+    width: auto;
+    height: 1.125rem;
+    flex: none;
 }
 
 .tq-brand-lockup--petrol-light {
-  display: block;
+    display: block;
 }
 
 [data-bs-theme="dark"] .tq-brand-lockup--petrol-light {
-  display: none;
+    display: none;
 }
 
 [data-bs-theme="dark"] .tq-brand-lockup--petrol-dark {
-  display: block;
+    display: block;
 }
 
 $tq-home-column-max: 640px;
 $tq-home-column-gutter: 2.5rem;
-$tq-home-column-outer-max: calc(
-  #{$tq-home-column-max} + (#{$tq-home-column-gutter} * 2)
-);
+$tq-home-column-outer-max: calc(#{$tq-home-column-max} + (#{$tq-home-column-gutter} * 2));
 
 // --- Hero Section (always dark) ---
 .tq-hero {
-  background: #0c0c0f;
-  padding: clamp(4.25rem, 8vw, 5.75rem) 0 clamp(3rem, 6vw, 4rem);
-  margin-top: -1px;
+    background: $tq-home-hero-bg;
+    padding: clamp(4.25rem, 8vw, 5.75rem) 0 clamp(3rem, 6vw, 4rem);
+    margin-top: -1px;
 }
 
 .tq-hero-inner {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: $tq-home-column-outer-max;
-  margin: 0 auto;
-  padding-inline: $tq-home-column-gutter;
-  display: grid;
-  justify-items: start;
-  text-align: left;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $tq-home-column-outer-max;
+    margin: 0 auto;
+    padding-inline: $tq-home-column-gutter;
+    display: grid;
+    justify-items: start;
+    text-align: left;
 }
 
 .tq-hero-headline {
-  color: #fff;
-  font-family: $font-family-sans-serif;
-  font-size: clamp(2.25rem, calc(4vw + 1rem), 4rem);
-  line-height: 1.02;
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  margin-bottom: 1.25rem;
-  max-width: 12ch;
-  text-wrap: balance;
+    color: #fff;
+    font-family: $font-family-sans-serif;
+    font-size: clamp(2.25rem, calc(4vw + 1rem), 4rem);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.25rem;
+    max-width: 12ch;
+    text-wrap: balance;
 }
 
 .tq-hero-headline-line {
-  display: block;
+    display: block;
 }
 
 .tq-hero-headline-line + .tq-hero-headline-line {
-  margin-top: 0.08em;
+    margin-top: 0.08em;
 }
 
 .tq-hero-lead {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: clamp(0.9375rem, calc(0.4vw + 0.85rem), 1.0625rem);
-  line-height: 1.75;
-  font-weight: 300;
-  max-width: 36rem;
-  margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: clamp(0.9375rem, calc(0.4vw + 0.85rem), 1.0625rem);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 36rem;
+    margin-bottom: 0;
 }
 
 .tq-hero-ctas {
-  margin-top: 1.75rem;
-  display: flex;
-  gap: 1rem 1.25rem;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+    margin-top: 1.75rem;
+    display: flex;
+    gap: 1rem 1.25rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 @media (min-width: 992px) {
-  .tq-hero-headline {
-    max-width: none;
-  }
-
-  .tq-hero-headline-line {
-    display: inline;
-  }
-
-  .tq-hero-headline-line + .tq-hero-headline-line {
-    margin-top: 0;
-
-    &::before {
-      content: " ";
+    .tq-hero-headline {
+        max-width: none;
     }
-  }
+
+    .tq-hero-headline-line {
+        display: inline;
+    }
+
+    .tq-hero-headline-line + .tq-hero-headline-line {
+        margin-top: 0;
+
+        &::before {
+            content: " ";
+        }
+    }
 }
 
 @media (max-width: 576px) {
-  .tq-hero {
-    padding-top: 4rem;
-    padding-bottom: 2.75rem;
-  }
+    .tq-hero {
+        padding-top: 4rem;
+        padding-bottom: 2.75rem;
+    }
 
-  .tq-hero-headline {
-    font-size: clamp(2rem, 9vw, 2.5rem);
-    max-width: none;
-  }
+    .tq-hero-headline {
+        font-size: clamp(2rem, 9vw, 2.5rem);
+        max-width: none;
+    }
 
-  .tq-hero-headline-line {
-    white-space: nowrap;
-  }
+    .tq-hero-headline-line {
+        white-space: nowrap;
+    }
 
-  .tq-hero-ctas {
-    flex-wrap: nowrap;
-    gap: 0.75rem;
-  }
+    .tq-hero-ctas {
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+    }
 
-  .tq-btn-outline {
-    padding: 0.4375rem 0.875rem;
-    font-size: 0.75rem;
-  }
+    .tq-btn-outline {
+        padding: 0.4375rem 0.875rem;
+        font-size: 0.75rem;
+    }
 
-  .tq-link-muted {
-    font-size: 0.75rem;
-  }
+    .tq-link-muted {
+        font-size: 0.75rem;
+    }
 }
 
 // Hero links must override Bootstrap's default a { color: var(--bs-link-color) }
 .tq-btn-outline {
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff !important;
-  padding: 0.5rem 1.25rem;
-  border-radius: 4px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: border-color 0.15s;
-
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.4);
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff !important;
-  }
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.15s;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        color: #fff !important;
+    }
 }
 
 .tq-link-muted {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.5) !important;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  text-decoration: none;
-  white-space: nowrap;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    text-decoration: none;
+    white-space: nowrap;
 
-  &:hover {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
+    &:hover {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
 }
 
 // --- Light Body Sections ---
 .tq-section {
-  background: var(--bs-body-bg);
+    background: var(--bs-body-bg);
 }
 
 .tq-section-inner {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: $tq-home-column-outer-max;
-  margin: 0 auto;
-  padding: 3.5rem $tq-home-column-gutter;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $tq-home-column-outer-max;
+    margin: 0 auto;
+    padding: 3.5rem $tq-home-column-gutter;
 }
 
 .tq-section-label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $tq-petrol-light;
-  margin-bottom: 1.25rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $tq-petrol-light;
+    margin-bottom: 1.25rem;
 
-  [data-bs-theme="dark"] & {
-    color: $tq-petrol-dark;
-  }
+    [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+    }
 }
 
 .tq-divider {
-  max-width: 640px;
-  margin: 0 auto;
-  border: none;
-  border-top: 1px solid var(--bs-border-color);
-  opacity: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid var(--bs-border-color);
+    opacity: 1;
 }
 
 // --- Thesis / Prose ---
 .tq-prose {
-  p {
-    font-size: 1.0625rem;
-    line-height: 1.75;
-    color: var(--bs-body-color);
-    margin-bottom: 1rem;
-    max-width: 600px;
-  }
+    p {
+        font-size: 1.0625rem;
+        line-height: 1.75;
+        color: var(--bs-body-color);
+        margin-bottom: 1rem;
+        max-width: 600px;
+    }
 }
 
 .tq-link {
-  color: $tq-petrol-light;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.875rem;
+    color: $tq-petrol-light;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 
-  [data-bs-theme="dark"] & {
-    color: $tq-petrol-dark;
-  }
+    [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+    }
 }
 
 // --- Theme component alignment ---
 body,
 .main {
-  background-color: var(--bs-body-bg);
-  color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
 }
 
 .navbar,
@@ -359,39 +357,39 @@ body,
 .dropdown-menu,
 .card,
 .modal-content {
-  background-color: var(--bs-body-bg);
-  border-color: var(--bs-border-color);
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
 }
 
 .offcanvas-header,
 .dropdown-divider {
-  border-color: var(--bs-border-color);
+    border-color: var(--bs-border-color);
 }
 
 .footer,
 details,
 details[open] > summary {
-  border-color: var(--bs-border-color);
+    border-color: var(--bs-border-color);
 }
 
 .dropdown-item:hover {
-  background: var(--bs-tertiary-bg);
+    background: var(--bs-tertiary-bg);
 }
 
 summary:hover {
-  background: var(--bs-tertiary-bg);
+    background: var(--bs-tertiary-bg);
 }
 
 .section-nav ul.list-nested,
 .page-links li:not(:first-child),
 .docs-links h3:not(:first-child) {
-  border-color: var(--bs-border-color);
+    border-color: var(--bs-border-color);
 }
 
 .section-nav a,
 .page-links a,
 .offcanvas .nav-link {
-  color: var(--bs-body-color);
+    color: var(--bs-body-color);
 }
 
 .section-nav a:hover,
@@ -402,398 +400,605 @@ summary:hover {
 .offcanvas .nav-link:hover,
 .offcanvas .nav-link:focus,
 .offcanvas .nav-link.active {
-  color: var(--bs-link-color);
+    color: var(--bs-link-color);
+}
+
+.tq-mobile-menu-utilities {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#offcanvasNavMain {
+    background-color: var(--bs-body-bg) !important;
+    border-left: 1px solid var(--bs-border-color);
+    color: var(--bs-body-color) !important;
+
+    .offcanvas-header {
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+
+    .offcanvas-title {
+        color: var(--bs-heading-color, var(--bs-body-color)) !important;
+    }
+
+    .tq-offcanvas-brand {
+        display: inline-flex;
+        align-items: center;
+        min-height: 1.5rem;
+
+        .tq-brand-lockup--petrol-light {
+            display: block !important;
+        }
+
+        .tq-brand-lockup--petrol-dark,
+        .tq-brand-lockup--mono-dark {
+            display: none !important;
+        }
+    }
+
+    .dropdown-menu {
+        background-color: var(--bs-body-bg) !important;
+        border-color: var(--bs-border-color) !important;
+    }
+
+    .nav-link,
+    .btn-link,
+    #buttonColorMode,
+    .social-link {
+        color: var(--bs-nav-link-color) !important;
+    }
+
+    .nav-link.active {
+        color: var(--bs-heading-color, var(--bs-body-color)) !important;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    #buttonColorMode:hover,
+    #buttonColorMode:focus,
+    .social-link:hover,
+    .social-link:focus {
+        color: var(--bs-link-color) !important;
+    }
+
+    [data-bs-theme="dark"] & {
+        .tq-offcanvas-brand {
+            .tq-brand-lockup--petrol-light {
+                display: none !important;
+            }
+
+            .tq-brand-lockup--petrol-dark {
+                display: block !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    #offcanvasNavMain {
+        background-color: transparent !important;
+        border-left: 0;
+
+        .offcanvas-body,
+        .offcanvas-header {
+            background-color: transparent !important;
+        }
+
+        .offcanvas-header {
+            border-bottom: 0;
+        }
+    }
 }
 
 .search-form .form-control:focus {
-  border: 2px solid $tq-petrol-light;
-  box-shadow: none;
+    border: 2px solid $tq-petrol-light;
+    box-shadow: none;
 }
 
 .search-result:hover .card,
 .search-result.selected .card {
-  background-color: $tq-petrol-light;
-  color: $tq-ui-bg-light;
+    background-color: $tq-petrol-light;
+    color: $tq-ui-bg-light;
 }
 
 .search-result:hover .card .content a,
 .search-result.selected .card .content a {
-  color: $tq-ui-bg-light;
+    color: $tq-ui-bg-light;
 }
 
 [data-bs-theme="dark"] {
-  .search-form .form-control:focus {
-    border-color: $tq-petrol-dark;
-  }
+    .search-form .form-control:focus {
+        border-color: $tq-petrol-dark;
+    }
 
-  .search-form .btn-link {
-    color: $tq-petrol-dark;
-  }
+    .search-form .btn-link {
+        color: $tq-petrol-dark;
+    }
 
-  .search-result:hover .card,
-  .search-result.selected .card {
-    background-color: $tq-petrol-dark;
-    color: $tq-ui-bg-dark;
-  }
+    .search-result:hover .card,
+    .search-result.selected .card {
+        background-color: $tq-petrol-dark;
+        color: $tq-ui-bg-dark;
+    }
 
-  .search-result:hover .card .content a,
-  .search-result.selected .card .content a,
-  .search-result:hover .card h2,
-  .search-result:hover .card .h2,
-  .search-result.selected .card h2,
-  .search-result.selected .card .h2 {
-    color: $tq-ui-bg-dark;
-  }
+    .search-result:hover .card .content a,
+    .search-result.selected .card .content a,
+    .search-result:hover .card h2,
+    .search-result:hover .card .h2,
+    .search-result.selected .card h2,
+    .search-result.selected .card .h2 {
+        color: $tq-ui-bg-dark;
+    }
 }
 
 // --- Principles ---
 .tq-principles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
 
-  @media (max-width: 576px) {
-    grid-template-columns: 1fr;
-  }
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .tq-principle {
-  h3 {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--bs-heading-color, var(--bs-body-color));
-    margin-bottom: 0.25rem;
-  }
+    h3 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--bs-heading-color, var(--bs-body-color));
+        margin-bottom: 0.25rem;
+    }
 
-  p {
-    font-size: 0.875rem;
-    color: var(--bs-secondary-color);
-    line-height: 1.55;
-    margin-bottom: 0;
-  }
+    p {
+        font-size: 0.875rem;
+        color: var(--bs-secondary-color);
+        line-height: 1.55;
+        margin-bottom: 0;
+    }
 }
 
 // --- Artifact Showcase ---
 .tq-artifact {
-  background: var(--bs-tertiary-bg);
-  border: 1px solid var(--bs-border-color);
-  border-radius: 0.5rem;
-  padding: 1.25rem 1.5rem;
-  overflow-x: auto;
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
 
-  pre {
-    margin: 0;
-    background: transparent;
-    border: none;
-    padding: 0;
-  }
+    pre {
+        margin: 0;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
 
-  code {
-    font-size: 0.78125rem;
-    line-height: 1.7;
-    color: var(--bs-body-color);
-  }
+    code {
+        font-size: 0.78125rem;
+        line-height: 1.7;
+        color: var(--bs-body-color);
+    }
 }
 
 .tq-path {
-  color: $tq-petrol-light;
+    color: $tq-petrol-light;
 
-  [data-bs-theme="dark"] & {
-    color: $tq-petrol-dark;
-  }
+    [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+    }
 }
 
 .tq-comment {
-  color: var(--bs-secondary-color);
+    color: var(--bs-secondary-color);
 }
 
 .tq-caption {
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
-  color: var(--bs-secondary-color);
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
 }
 
 // --- From the Lab ---
 .tq-lab-posts {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .tq-lab-post {
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--bs-border-color);
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--bs-border-color);
 
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
 }
 
 .tq-post-type {
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: $tq-petrol-light;
-  margin-bottom: 0.25rem;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $tq-petrol-light;
+    margin-bottom: 0.25rem;
 
-  [data-bs-theme="dark"] & {
-    color: $tq-petrol-dark;
-  }
+    [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+    }
 }
 
 .tq-lab-post h3 {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
 
-  a {
-    color: var(--bs-heading-color, var(--bs-body-color));
-    text-decoration: none;
+    a {
+        color: var(--bs-heading-color, var(--bs-body-color));
+        text-decoration: none;
 
-    &:hover {
-      color: $tq-petrol-light;
+        &:hover {
+            color: $tq-petrol-light;
 
-      [data-bs-theme="dark"] & {
-        color: $tq-petrol-dark;
-      }
+            [data-bs-theme="dark"] & {
+                color: $tq-petrol-dark;
+            }
+        }
     }
-  }
 }
 
 .tq-post-meta {
-  font-size: 0.75rem;
-  color: var(--bs-secondary-color);
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
 }
 
 .tq-post-excerpt {
-  font-size: 0.875rem;
-  color: var(--bs-secondary-color);
-  margin-top: 0.375rem;
-  line-height: 1.55;
+    font-size: 0.875rem;
+    color: var(--bs-secondary-color);
+    margin-top: 0.375rem;
+    line-height: 1.55;
 }
 
 .tq-lab-more {
-  margin-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 // --- Footer ---
 .tq-footer {
-  border-top: 1px solid var(--bs-border-color);
-  padding: 1.75rem 2.5rem;
+    border-top: 1px solid var(--bs-border-color);
+    padding: 1.75rem 2.5rem;
 }
 
 .tq-footer-inner {
-  max-width: 640px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  @media (max-width: 576px) {
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
-  }
+    @media (max-width: 576px) {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
 }
 
 .tq-footer-left {
-  font-size: 0.75rem;
-  color: var(--bs-secondary-color);
-  font-weight: 300;
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
+    font-weight: 300;
 }
 
 .tq-footer-right {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
 
-  a {
-    font-size: 0.75rem;
-    color: var(--bs-secondary-color);
-    text-decoration: none;
+    a {
+        font-size: 0.75rem;
+        color: var(--bs-secondary-color);
+        text-decoration: none;
 
-    &:hover {
-      color: $tq-petrol-light;
+        &:hover {
+            color: $tq-petrol-light;
 
-      [data-bs-theme="dark"] & {
-        color: $tq-petrol-dark;
-      }
+            [data-bs-theme="dark"] & {
+                color: $tq-petrol-dark;
+            }
+        }
     }
-  }
 }
 
 .tq-footer-sep {
-  color: var(--bs-border-color);
+    color: var(--bs-border-color);
 }
 
 // --- Nav Dark/Light Transition ---
 .sticky-top {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 
-  // Default state: light nav (inner pages + scrolled past hero)
-  background: rgba(var(--bs-body-bg-rgb), 0.92);
-  backdrop-filter: blur(12px);
-
-  .navbar-brand {
-    color: $tq-petrol-light;
-    transition: color 0.3s ease;
-  }
-
-  .nav-link {
-    transition: color 0.3s ease;
-  }
-
-  [data-bs-theme="dark"] & {
-    .navbar-brand {
-      color: $tq-petrol-dark;
-    }
-  }
-
-  // Dark nav state — applied via CSS on homepage (no JS flash),
-  // and toggled by JS on scroll. Homepage stays in hero state until
-  // JS adds .tq-nav-light after scrolling past the hero.
-  &.tq-nav-dark,
-  .home &:not(.tq-nav-light) {
-    background: #0c0c0f !important;
-    backdrop-filter: none !important;
-    border-bottom-color: transparent !important;
-
-    .tq-brand-lockup--petrol-light,
-    .tq-brand-lockup--petrol-dark {
-      display: none !important;
-    }
-
-    .tq-brand-lockup--mono-dark {
-      display: block !important;
-    }
-
-    .navbar {
-      background-color: transparent !important;
-      border-bottom-color: transparent !important;
-    }
+    // Default state: light nav (inner pages + scrolled past hero)
+    background: rgba(var(--bs-body-bg-rgb), 0.92);
+    backdrop-filter: blur(12px);
 
     .navbar-brand {
-      color: rgba(255, 255, 255, 0.6) !important;
+        color: $tq-petrol-light;
+        transition: color 0.3s ease;
     }
 
     .nav-link {
-      color: rgba(255, 255, 255, 0.5) !important;
-
-      &.active {
-        color: #fff !important;
-      }
+        transition: color 0.3s ease;
     }
 
-    #buttonColorMode {
-      color: rgba(255, 255, 255, 0.5) !important;
-    }
-
-    .social-link {
-      color: rgba(255, 255, 255, 0.35) !important;
-
-      &:hover {
-        color: rgba(255, 255, 255, 0.7) !important;
-      }
-    }
-
-    #searchToggleMobile,
-    #searchToggleDesktop {
-      color: rgba(255, 255, 255, 0.5) !important;
-    }
-  }
-
-  // When JS has scrolled past hero, remove dark state even on homepage
-  &.tq-nav-light {
-    background: rgba(var(--bs-body-bg-rgb), 0.92) !important;
-    backdrop-filter: blur(12px) !important;
-    border-bottom-color: var(--bs-border-color) !important;
-
-    .tq-brand-lockup--mono-dark {
-      display: none !important;
-    }
-
-    .tq-brand-lockup--petrol-light {
-      display: block !important;
+    .navbar {
+        transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease;
     }
 
     [data-bs-theme="dark"] & {
-      .tq-brand-lockup--petrol-light {
-        display: none !important;
-      }
-
-      .tq-brand-lockup--petrol-dark {
-        display: block !important;
-      }
+        .navbar-brand {
+            color: $tq-petrol-dark;
+        }
     }
 
-    .navbar {
-      background-color: transparent !important;
-      border-bottom-color: transparent !important;
+    // Dark nav state — applied via CSS on homepage (no JS flash),
+    // and toggled by JS on scroll. Homepage stays in hero state until
+    // JS adds .tq-nav-light after scrolling past the hero.
+    &.tq-nav-dark,
+    body.home > &:not(.tq-nav-light) {
+        background: $tq-home-hero-bg !important;
+        backdrop-filter: none !important;
+        border-bottom-color: transparent !important;
+
+        .tq-brand-lockup--petrol-light,
+        .tq-brand-lockup--petrol-dark {
+            display: none !important;
+        }
+
+        .tq-brand-lockup--mono-dark {
+            display: block !important;
+        }
+
+        .navbar {
+            background-color: $tq-home-hero-bg !important;
+            border-bottom-color: transparent !important;
+        }
+
+        @include media-breakpoint-up(lg) {
+            #offcanvasNavMain {
+                color: rgba(255, 255, 255, 0.5) !important;
+
+                .nav-link,
+                .btn-link,
+                #buttonColorMode,
+                .social-link,
+                #searchToggleDesktop {
+                    color: rgba(255, 255, 255, 0.5) !important;
+                }
+
+                .nav-link.active {
+                    color: #fff !important;
+                }
+
+                .nav-link:hover,
+                .nav-link:focus,
+                #buttonColorMode:hover,
+                #buttonColorMode:focus,
+                .social-link:hover,
+                .social-link:focus,
+                #searchToggleDesktop:hover,
+                #searchToggleDesktop:focus {
+                    color: rgba(255, 255, 255, 0.7) !important;
+                }
+            }
+        }
+
+        .navbar-brand {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.5) !important;
+
+            &.active {
+                color: #fff !important;
+            }
+        }
+
+        #buttonColorMode {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .social-link {
+            color: rgba(255, 255, 255, 0.35) !important;
+
+            &:hover {
+                color: rgba(255, 255, 255, 0.7) !important;
+            }
+        }
+
+        #searchToggleMobile,
+        #searchToggleDesktop {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
     }
 
-    .navbar-brand {
-      color: $tq-petrol-light !important;
+    // When JS has scrolled past hero, remove dark state even on homepage
+    &.tq-nav-light {
+        background: rgba(var(--bs-body-bg-rgb), 0.92) !important;
+        backdrop-filter: blur(12px) !important;
+        border-bottom-color: var(--bs-border-color) !important;
 
-      [data-bs-theme="dark"] & {
-        color: $tq-petrol-dark !important;
-      }
+        .tq-brand-lockup--mono-dark {
+            display: none !important;
+        }
+
+        .tq-brand-lockup--petrol-light {
+            display: block !important;
+        }
+
+        [data-bs-theme="dark"] & {
+            .tq-brand-lockup--petrol-light {
+                display: none !important;
+            }
+
+            .tq-brand-lockup--petrol-dark {
+                display: block !important;
+            }
+        }
+
+        .navbar {
+            background-color: transparent !important;
+            border-bottom-color: transparent !important;
+        }
+
+        .navbar-brand {
+            color: $tq-petrol-light !important;
+
+            [data-bs-theme="dark"] & {
+                color: $tq-petrol-dark !important;
+            }
+        }
+
+        .nav-link {
+            color: var(--bs-nav-link-color) !important;
+
+            &.active {
+                color: var(--bs-heading-color, var(--bs-body-color)) !important;
+            }
+        }
+
+        #buttonColorMode {
+            color: var(--bs-nav-link-color) !important;
+        }
+
+        .social-link {
+            color: var(--bs-nav-link-color) !important;
+        }
+
+        #searchToggleMobile,
+        #searchToggleDesktop {
+            color: var(--bs-nav-link-color) !important;
+        }
     }
-
-    .nav-link {
-      color: var(--bs-nav-link-color) !important;
-
-      &.active {
-        color: var(--bs-heading-color, var(--bs-body-color)) !important;
-      }
-    }
-
-    #buttonColorMode {
-      color: var(--bs-nav-link-color) !important;
-    }
-
-    .social-link {
-      color: var(--bs-nav-link-color) !important;
-    }
-
-    #searchToggleMobile,
-    #searchToggleDesktop {
-      color: var(--bs-nav-link-color) !important;
-    }
-  }
 }
 
 body > .sticky-top {
-  position: sticky;
-  top: 0;
-  z-index: 1030;
-  width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    width: 100%;
 }
 
 @include media-breakpoint-down(lg) {
-  body:not(.home) > .sticky-top,
-  body > .sticky-top.tq-nav-light {
-    background: rgba(var(--bs-body-bg-rgb), 0.98) !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
+    body > .sticky-top {
+        position: sticky !important;
+        top: 0;
+        z-index: 1030;
+    }
+
+    #offcanvasNavMain {
+        width: 22rem;
+        max-width: 100vw;
+        background-color: var(--bs-body-bg) !important;
+        border-left: 1px solid var(--bs-border-color);
+        color: var(--bs-body-color) !important;
+
+        .offcanvas-header,
+        .offcanvas-body {
+            background-color: var(--bs-body-bg) !important;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid var(--bs-border-color) !important;
+        }
+
+        .offcanvas-title {
+            color: var(--bs-heading-color, var(--bs-body-color)) !important;
+        }
+
+        .offcanvas-body {
+            gap: 1rem;
+        }
+
+        .navbar-nav {
+            margin-top: 0;
+        }
+
+        .nav-link,
+        .btn-link,
+        #buttonColorMode,
+        .social-link {
+            color: var(--bs-nav-link-color) !important;
+        }
+
+        .nav-link.active {
+            color: var(--bs-heading-color, var(--bs-body-color)) !important;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus,
+        #buttonColorMode:hover,
+        #buttonColorMode:focus,
+        .social-link:hover,
+        .social-link:focus {
+            color: var(--bs-link-color) !important;
+        }
+
+        #buttonColorMode,
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin: 0 !important;
+            padding: 0 !important;
+            border-radius: 999px;
+        }
+
+        #socialMenu {
+            margin: 0;
+        }
+
+        #socialMenu .nav-item,
+        #socialMenu .nav-item:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .tq-mobile-menu-utilities {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 0.25rem;
+    }
+
+    body:not(.home) > .sticky-top,
+    body > .sticky-top.tq-nav-light {
+        background: rgba(var(--bs-body-bg-rgb), 0.98) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
 }
 
 // Remove all container constraints on homepage for full-width hero
 .home .wrap.container-fluid {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  max-width: none !important;
-
-  .content {
-    max-width: none;
-    padding: 0;
-  }
-
-  // Doks adds an inner .container that constrains max-width
-  .content > .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     max-width: none !important;
-    padding: 0 !important;
-  }
+
+    .content {
+        max-width: none;
+        padding: 0;
+    }
+
+    // Doks adds an inner .container that constrains max-width
+    .content > .container {
+        max-width: none !important;
+        padding: 0 !important;
+    }
 }

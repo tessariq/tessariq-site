@@ -1,10 +1,18 @@
 // Tessariq Brand — Font Stacks
-$font-family-sans-serif: "Albert Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-sans-serif:
+    "Albert Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 $font-family-wordmark: "Sora", $font-family-sans-serif;
 
 // Tessariq Brand — Petrol Accent
-$tq-petrol-light: #155e75;  // use on light backgrounds
-$tq-petrol-dark: #0891b2;   // use on dark backgrounds
+$tq-petrol-light: #155e75; // use on light backgrounds
+$tq-petrol-dark: #0891b2; // use on dark backgrounds
 
 // Website UI neutrals — screen-optimized and documented as web-only tokens.
 $tq-ui-bg-light: #fafaf8;
@@ -13,6 +21,8 @@ $tq-ui-text-light: #111111;
 $tq-ui-muted-light: rgba($tq-ui-text-light, 0.68);
 $tq-ui-border-light: rgba($tq-ui-text-light, 0.12);
 
+// Homepage hero stays on a darker neutral than the long-form dark theme surface.
+$tq-home-hero-bg: #0c0c0f;
 $tq-ui-bg-dark: #111117;
 $tq-ui-surface-dark: #171821;
 $tq-ui-text-dark: #ece8e1;
