@@ -233,7 +233,7 @@
           <ul id="socialMenu" class="nav flex-row">
             {{ range .Site.Menus.social -}}
               <li class="nav-item">
-                <a class="nav-link social-link" href="{{ .URL | relURL }}">{{ .Pre | safeHTML }}<small class="ms-2 visually-hidden">{{ .Name | safeHTML }}</small></a>
+                <a class="nav-link social-link" href="{{ .URL | relURL }}" target="_blank" rel="noopener">{{ .Pre | safeHTML }}<small class="ms-2 visually-hidden">{{ .Name | safeHTML }}</small></a>
               </li>
             {{ end -}}
           </ul>
