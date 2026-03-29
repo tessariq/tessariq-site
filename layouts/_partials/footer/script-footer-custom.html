@@ -1,21 +1,14 @@
 <script>
-// Replace navbar-brand text with SVG logo + wordmark
+// Replace navbar-brand text with the canonical SVG lockups.
 (function() {
   var brand = document.querySelector('.navbar-brand');
   if (!brand) return;
+  brand.setAttribute('aria-label', 'Tessariq');
   brand.innerHTML =
-    '<svg width="22" height="22" viewBox="0 0 160 160" fill="none" style="vertical-align:middle;margin-right:8px;">' +
-      '<rect x="10" y="10" width="140" height="140" rx="4" stroke="currentColor" stroke-width="2" opacity="0.25"/>' +
-      '<rect x="38" y="38" width="38" height="38" rx="2" fill="currentColor" opacity="1.0"/>' +
-      '<rect x="84" y="38" width="38" height="38" rx="2" fill="currentColor" opacity="0.7"/>' +
-      '<rect x="84" y="84" width="38" height="38" rx="2" fill="currentColor" opacity="0.4"/>' +
-      '<rect x="38" y="84" width="38" height="38" rx="2" fill="currentColor" opacity="0.3"/>' +
-      '<line x1="10" y1="10" x2="38" y2="38" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>' +
-      '<line x1="150" y1="10" x2="122" y2="38" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>' +
-      '<line x1="10" y1="150" x2="38" y2="122" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>' +
-      '<line x1="150" y1="150" x2="122" y2="122" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>' +
-    '</svg>' +
-    '<span>tessariq</span>';
+    '<img class="tq-brand-lockup tq-brand-lockup--petrol-light" src="/logo/lockup-horizontal-petrol-light.svg" alt="" aria-hidden="true" width="112" height="24">' +
+    '<img class="tq-brand-lockup tq-brand-lockup--petrol-dark" src="/logo/lockup-horizontal-petrol-dark.svg" alt="" aria-hidden="true" width="112" height="24">' +
+    '<img class="tq-brand-lockup tq-brand-lockup--mono-dark" src="/logo/lockup-horizontal-mono-dark.svg" alt="" aria-hidden="true" width="112" height="24">' +
+    '<span class="visually-hidden">Tessariq</span>';
 })();
 
 // Nav dark-to-light transition on homepage

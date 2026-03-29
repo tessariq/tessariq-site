@@ -17,10 +17,24 @@
 [data-bs-theme="light"] {
   --bs-primary: #{$tq-petrol-light};
   --bs-primary-rgb: 21, 94, 117;
+  --bs-body-bg: #{$tq-ui-bg-light};
+  --bs-body-bg-rgb: 250, 250, 248;
+  --bs-body-color: #{$tq-ui-text-light};
+  --bs-body-color-rgb: 17, 17, 17;
+  --bs-heading-color: #{$tq-ui-text-light};
+  --bs-emphasis-color: #{$tq-ui-text-light};
+  --bs-secondary-bg: #{$tq-ui-surface-light};
+  --bs-secondary-bg-rgb: 244, 241, 235;
+  --bs-secondary-color: #{$tq-ui-muted-light};
+  --bs-secondary-color-rgb: 17, 17, 17;
+  --bs-tertiary-bg: #{$tq-ui-surface-light};
+  --bs-tertiary-bg-rgb: 244, 241, 235;
+  --bs-border-color: #{$tq-ui-border-light};
   --bs-link-color: #{$tq-petrol-light};
   --bs-link-color-rgb: 21, 94, 117;
   --bs-link-hover-color: #{$tq-petrol-light};
   --bs-link-hover-color-rgb: 21, 94, 117;
+  --bs-nav-link-color: #{$tq-ui-muted-light};
 }
 
 // Dark mode — override Bootstrap + Doks dark accent colors
@@ -29,10 +43,24 @@
 [data-bs-theme="dark"] {
   --bs-primary: #{$tq-petrol-dark};
   --bs-primary-rgb: 8, 145, 178;
+  --bs-body-bg: #{$tq-ui-bg-dark};
+  --bs-body-bg-rgb: 17, 17, 23;
+  --bs-body-color: #{$tq-ui-text-dark};
+  --bs-body-color-rgb: 236, 232, 225;
+  --bs-heading-color: #{$tq-ui-text-dark};
+  --bs-emphasis-color: #{$tq-ui-text-dark};
+  --bs-secondary-bg: #{$tq-ui-surface-dark};
+  --bs-secondary-bg-rgb: 23, 24, 33;
+  --bs-secondary-color: #{$tq-ui-muted-dark};
+  --bs-secondary-color-rgb: 236, 232, 225;
+  --bs-tertiary-bg: #{$tq-ui-surface-dark};
+  --bs-tertiary-bg-rgb: 23, 24, 33;
+  --bs-border-color: #{$tq-ui-border-dark};
   --bs-link-color: #{$tq-petrol-dark};
   --bs-link-color-rgb: 8, 145, 178;
   --bs-link-hover-color: #{$tq-petrol-dark};
   --bs-link-hover-color-rgb: 8, 145, 178;
+  --bs-nav-link-color: #{$tq-ui-muted-dark};
 
   // Global link color override — exclude nav elements and hero links
   a:not(.nav-link):not(.navbar-brand):not(.social-link):not(.tq-btn-outline):not(.tq-link-muted):not(.dropdown-item) {
@@ -89,11 +117,33 @@
 
 // --- Wordmark ---
 .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
   font-family: $font-family-wordmark;
   font-weight: 300;
   letter-spacing: 0.18em;
   text-transform: lowercase;
   font-size: 0.85rem;
+}
+
+.tq-brand-lockup {
+  display: none;
+  width: auto;
+  height: 1.125rem;
+  flex: none;
+}
+
+.tq-brand-lockup--petrol-light {
+  display: block;
+}
+
+[data-bs-theme="dark"] .tq-brand-lockup--petrol-light {
+  display: none;
+}
+
+[data-bs-theme="dark"] .tq-brand-lockup--petrol-dark {
+  display: block;
 }
 
 // --- Hero Section (always dark) ---
@@ -217,6 +267,105 @@
 
   [data-bs-theme="dark"] & {
     color: $tq-petrol-dark;
+  }
+}
+
+// --- Theme component alignment ---
+body,
+.main {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.navbar,
+.offcanvas,
+.dropdown-menu,
+.card,
+.modal-content {
+  background-color: var(--bs-body-bg);
+  border-color: var(--bs-border-color);
+}
+
+.offcanvas-header,
+.dropdown-divider {
+  border-color: var(--bs-border-color);
+}
+
+.footer,
+details,
+details[open] > summary {
+  border-color: var(--bs-border-color);
+}
+
+.dropdown-item:hover {
+  background: var(--bs-tertiary-bg);
+}
+
+summary:hover {
+  background: var(--bs-tertiary-bg);
+}
+
+.section-nav ul.list-nested,
+.page-links li:not(:first-child),
+.docs-links h3:not(:first-child) {
+  border-color: var(--bs-border-color);
+}
+
+.section-nav a,
+.page-links a,
+.offcanvas .nav-link {
+  color: var(--bs-body-color);
+}
+
+.section-nav a:hover,
+.section-nav a:active,
+.section-nav li.active a,
+.page-links a:hover,
+.page-links a.active,
+.offcanvas .nav-link:hover,
+.offcanvas .nav-link:focus,
+.offcanvas .nav-link.active {
+  color: var(--bs-link-color);
+}
+
+.search-form .form-control:focus {
+  border: 2px solid $tq-petrol-light;
+  box-shadow: none;
+}
+
+.search-result:hover .card,
+.search-result.selected .card {
+  background-color: $tq-petrol-light;
+  color: $tq-ui-bg-light;
+}
+
+.search-result:hover .card .content a,
+.search-result.selected .card .content a {
+  color: $tq-ui-bg-light;
+}
+
+[data-bs-theme="dark"] {
+  .search-form .form-control:focus {
+    border-color: $tq-petrol-dark;
+  }
+
+  .search-form .btn-link {
+    color: $tq-petrol-dark;
+  }
+
+  .search-result:hover .card,
+  .search-result.selected .card {
+    background-color: $tq-petrol-dark;
+    color: $tq-ui-bg-dark;
+  }
+
+  .search-result:hover .card .content a,
+  .search-result.selected .card .content a,
+  .search-result:hover .card h2,
+  .search-result:hover .card .h2,
+  .search-result.selected .card h2,
+  .search-result.selected .card .h2 {
+    color: $tq-ui-bg-dark;
   }
 }
 
@@ -434,6 +583,15 @@
     backdrop-filter: none !important;
     border-bottom-color: transparent !important;
 
+    .tq-brand-lockup--petrol-light,
+    .tq-brand-lockup--petrol-dark {
+      display: none !important;
+    }
+
+    .tq-brand-lockup--mono-dark {
+      display: block !important;
+    }
+
     .navbar {
       background-color: transparent !important;
       border-bottom-color: transparent !important;
@@ -474,6 +632,24 @@
     background: rgba(var(--bs-body-bg-rgb), 0.92) !important;
     backdrop-filter: blur(12px) !important;
     border-bottom-color: var(--bs-border-color) !important;
+
+    .tq-brand-lockup--mono-dark {
+      display: none !important;
+    }
+
+    .tq-brand-lockup--petrol-light {
+      display: block !important;
+    }
+
+    [data-bs-theme="dark"] & {
+      .tq-brand-lockup--petrol-light {
+        display: none !important;
+      }
+
+      .tq-brand-lockup--petrol-dark {
+        display: block !important;
+      }
+    }
 
     .navbar {
       background-color: transparent !important;

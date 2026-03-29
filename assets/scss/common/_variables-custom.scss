@@ -6,6 +6,40 @@ $font-family-wordmark: "Sora", $font-family-sans-serif;
 $tq-petrol-light: #155e75;  // use on light backgrounds
 $tq-petrol-dark: #0891b2;   // use on dark backgrounds
 
+// Website UI neutrals — screen-optimized and documented as web-only tokens.
+$tq-ui-bg-light: #fafaf8;
+$tq-ui-surface-light: #f4f1eb;
+$tq-ui-text-light: #111111;
+$tq-ui-muted-light: rgba($tq-ui-text-light, 0.68);
+$tq-ui-border-light: rgba($tq-ui-text-light, 0.12);
+
+$tq-ui-bg-dark: #111117;
+$tq-ui-surface-dark: #171821;
+$tq-ui-text-dark: #ece8e1;
+$tq-ui-muted-dark: rgba($tq-ui-text-dark, 0.72);
+$tq-ui-border-dark: rgba($tq-ui-text-dark, 0.14);
+
+// Feed Bootstrap's theme variables so generated component styles follow the site neutrals.
+$body-bg: $tq-ui-bg-light;
+$body-color: $tq-ui-text-light;
+$body-secondary-color: $tq-ui-muted-light;
+$body-secondary-bg: $tq-ui-surface-light;
+$body-tertiary-color: rgba($tq-ui-text-light, 0.5);
+$body-tertiary-bg: $tq-ui-surface-light;
+$headings-color: $tq-ui-text-light;
+$emphasis-color: $tq-ui-text-light;
+$border-color: $tq-ui-border-light;
+
+$body-bg-dark: $tq-ui-bg-dark;
+$body-color-dark: $tq-ui-text-dark;
+$body-secondary-color-dark: $tq-ui-muted-dark;
+$body-secondary-bg-dark: $tq-ui-surface-dark;
+$body-tertiary-color-dark: rgba($tq-ui-text-dark, 0.52);
+$body-tertiary-bg-dark: $tq-ui-surface-dark;
+$headings-color-dark: $tq-ui-text-dark;
+$emphasis-color-dark: $tq-ui-text-dark;
+$border-color-dark: $tq-ui-border-dark;
+
 // Override Bootstrap primary with petrol
 $primary: $tq-petrol-light;
 $link-color: $tq-petrol-light;
