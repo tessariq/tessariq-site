@@ -652,10 +652,10 @@ summary:hover {
   }
 
   // Dark nav state — applied via CSS on homepage (no JS flash),
-  // and toggled by JS on scroll. Uses both .tq-nav-dark (JS) and
-  // .home body class (CSS default) to avoid flicker.
+  // and toggled by JS on scroll. Homepage stays in hero state until
+  // JS adds .tq-nav-light after scrolling past the hero.
   &.tq-nav-dark,
-  .home & {
+  .home &:not(.tq-nav-light) {
     background: #0c0c0f !important;
     backdrop-filter: none !important;
     border-bottom-color: transparent !important;
@@ -761,6 +761,22 @@ summary:hover {
     #searchToggleDesktop {
       color: var(--bs-nav-link-color) !important;
     }
+  }
+}
+
+body > .sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  width: 100%;
+}
+
+@include media-breakpoint-down(lg) {
+  body:not(.home) > .sticky-top,
+  body > .sticky-top.tq-nav-light {
+    background: rgba(var(--bs-body-bg-rgb), 0.98) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 
