@@ -25,7 +25,7 @@ Agent work should look and feel like engineering work: inspectable, reviewable, 
 ## What it is not
 
 - Not a proprietary agent IDE that owns your workflow.
-- Not a one-workflow platform that locks you into a single adapter.
+- Not a one-workflow platform that locks you into a single agent or runtime.
 - Not a claim of perfect determinism or autonomous infallibility.
 
 ## Operating principles

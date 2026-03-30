@@ -18,28 +18,38 @@ params:
 
 This quickstart shows the core loop:
 
-1. run a task in a detached workspace,
-2. inspect evidence artifacts,
-3. validate outcome,
-4. promote through Git.
+1. initialise a repository for Tessariq,
+2. run a task in an isolated worktree,
+3. inspect evidence artifacts,
+4. validate outcome,
+5. promote through Git.
 
 ## Prerequisites
 
-- A local Git repository.
-- A configured Tessariq runtime.
-- A task you can verify with a command (for example `npm run build` or `npm test`).
+- A local Git repository with a clean working tree (no staged, unstaged, or untracked files).
+- Host binaries: `git`, `tmux`, `docker`.
+- A task file (Markdown) inside the repository.
+- A verification command for your project (for example `npm run build` or `npm test`).
 
-## 1) Start a detached run
-
-Create a task file and execute it with detached workspace mode.
+## 1) Initialise the repository
 
 ```bash
-tessariq run --task task.md --workspace detached
+tessariq init
 ```
 
-Expected result: a new run directory is created under `.tessariq/runs/<run-id>/`.
+This creates `.tessariq/runs/` and adds `.tessariq/` to `.gitignore`.
 
-## 2) Inspect run artifacts
+## 2) Start a detached run
+
+Point Tessariq at a task file inside your repository.
+
+```bash
+tessariq run tasks/my-task.md
+```
+
+The run executes in an isolated worktree. Expected output includes the `run_id`, evidence path, and the commands for `attach` and `promote`.
+
+## 3) Inspect run artifacts
 
 Each run writes an evidence tree you can inspect with shell tools and scripts.
 
@@ -47,6 +57,8 @@ Each run writes an evidence tree you can inspect with shell tools and scripts.
 .tessariq/runs/01JQ.../
 ├── manifest.json
 ├── status.json
+├── agent.json
+├── runtime.json
 ├── workspace.json
 ├── task.md
 ├── diff.patch
@@ -57,11 +69,11 @@ Each run writes an evidence tree you can inspect with shell tools and scripts.
 
 Minimum checks before promotion:
 
-- `status.json` reports a successful terminal state.
+- `status.json` reports `"state": "success"`.
 - `diff.patch` matches the requested task scope.
 - `run.log` has no hidden retry loops or policy violations.
 
-## 3) Validate in your repo context
+## 4) Validate in your repo context
 
 Apply or promote the proposed changes, then run project checks.
 
@@ -71,9 +83,13 @@ npm run build
 
 Use the validation command that matches your repository. The key point is to verify behavior in your real toolchain before review.
 
-## 4) Promote with Git review
+## 5) Promote with Git review
 
-Promotion should follow normal engineering controls:
+```bash
+tessariq promote last
+```
+
+Promotion creates one branch and exactly one commit with trailers linking back to the run. From there, follow normal engineering controls:
 
 - open the diff,
 - request review,
@@ -81,7 +97,7 @@ Promotion should follow normal engineering controls:
 
 Do not bypass your standard review path just because a run succeeded.
 
-## 5) Keep the evidence
+## 6) Keep the evidence
 
 Store run artifacts with the work item or CI records when needed for auditing, debugging, or incident analysis.
 
@@ -95,8 +111,8 @@ Inspect `task.md` and `diff.patch` first. Most early failures are scope mismatch
 
 ### Validation fails locally
 
-Use `run.log` and `runner.log` to compare runtime assumptions (dependencies, environment, network policy) with your local setup.
+Use `run.log` and `runner.log` to compare runtime assumptions (dependencies, environment, network policy) with your local setup. Check `runtime.json` for the image used and `agent.json` for which options were actually applied.
 
 ### No diff produced
 
-Check `status.json` for terminal state and exit code. A successful process can still produce no changes if the task is ambiguous or already satisfied.
+Check `status.json` for terminal state and exit code. A `success` state can still produce no changes if the task is ambiguous or already satisfied. `promote` will refuse to create a commit when there is no diff.
