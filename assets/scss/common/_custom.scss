@@ -76,13 +76,13 @@
 
     // Hover/active states for navigation
     .offcanvas .nav-link:hover,
-    .offcanvas .nav-link:focus,
+    .offcanvas .nav-link:focus-visible,
     .offcanvas .nav-link.active,
     .navbar-light .navbar-nav .nav-link:hover,
-    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:focus-visible,
     .navbar-light .navbar-nav .nav-link.active,
     .btn-toggle-nav a:hover,
-    .btn-toggle-nav a:focus,
+    .btn-toggle-nav a:focus-visible,
     .page-links a:hover,
     .showcase-meta a:hover,
     .show > .btn-doks-light,
@@ -398,7 +398,7 @@ summary:hover {
 .page-links a:hover,
 .page-links a.active,
 .offcanvas .nav-link:hover,
-.offcanvas .nav-link:focus,
+.offcanvas .nav-link:focus-visible,
 .offcanvas .nav-link.active {
     color: var(--bs-link-color);
 }
@@ -454,11 +454,11 @@ summary:hover {
     }
 
     .nav-link:hover,
-    .nav-link:focus,
+    .nav-link:focus-visible,
     #buttonColorMode:hover,
-    #buttonColorMode:focus,
+    #buttonColorMode:focus-visible,
     .social-link:hover,
-    .social-link:focus {
+    .social-link:focus-visible {
         color: var(--bs-link-color) !important;
     }
 
@@ -785,13 +785,13 @@ summary:hover {
                 }
 
                 .nav-link:hover,
-                .nav-link:focus,
+                .nav-link:focus-visible,
                 #buttonColorMode:hover,
-                #buttonColorMode:focus,
+                #buttonColorMode:focus-visible,
                 .social-link:hover,
-                .social-link:focus,
+                .social-link:focus-visible,
                 #searchToggleDesktop:hover,
-                #searchToggleDesktop:focus {
+                #searchToggleDesktop:focus-visible {
                     color: rgba(255, 255, 255, 0.7) !important;
                 }
             }
@@ -941,11 +941,11 @@ body > .sticky-top {
         }
 
         .nav-link:hover,
-        .nav-link:focus,
+        .nav-link:focus-visible,
         #buttonColorMode:hover,
-        #buttonColorMode:focus,
+        #buttonColorMode:focus-visible,
         .social-link:hover,
-        .social-link:focus {
+        .social-link:focus-visible {
             color: var(--bs-link-color) !important;
         }
 
