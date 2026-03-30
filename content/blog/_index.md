@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-description: "Read product updates, release highlights, and practical tips that explain what’s new, why it matters, and how to get the most value from this project."
+description: "Field notes from building agent infrastructure: failure modes, safety boundaries, and practical patterns backed by inspectable artifacts."
 summary: ""
 date: 2023-09-07T16:21:44+02:00
 lastmod: 2023-09-07T16:21:44+02:00

@@ -1,6 +1,6 @@
 ---
 title: "Docs"
-description: "Browse guides and reference documentation that explain how to use this site’s features, configure Doks, and publish clear, user-focused content."
+description: "Build and operate a Git-native agent workflow: start with a quick run, inspect artifacts, and learn the execution model in plain files."
 summary: ""
 date: 2023-09-07T16:12:03+02:00
 lastmod: 2023-09-07T16:12:03+02:00
@@ -16,5 +16,5 @@ params:
   section:
     title: "Documentation"
     iconName: "book"
-    startUrl: "/docs/guides/example-guide/"
+    startUrl: "/docs/guides/quickstart/"
 ---
