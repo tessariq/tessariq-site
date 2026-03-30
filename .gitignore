@@ -9,3 +9,4 @@ resources
 .vscode
 netlify.toml
 docs/superpowers
+hugo_stats.json
