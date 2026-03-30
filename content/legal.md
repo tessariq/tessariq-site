@@ -1,6 +1,6 @@
 ---
 title: Legal Notice
-description: "Legal notice for the Tessariq website."
+description: "Legal notice for the Tessariq website, including operator contact details and required disclosure information under German law."
 toc: false
 ---
 
