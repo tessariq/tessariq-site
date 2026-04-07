@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Field Notes"
 description: "Field notes from building agent infrastructure: failure modes, safety boundaries, and practical patterns backed by inspectable artifacts."
 summary: ""
 date: 2023-09-07T16:21:44+02:00

@@ -4,7 +4,7 @@
   weight = 10
 
 [[main]]
-  name = "Blog"
+  name = "Field Notes"
   url = "/blog/"
   weight = 20
 
@@ -12,6 +12,11 @@
   name = "Docs"
   url = "/docs/guides/quickstart/"
   weight = 30
+
+[[main]]
+  name = "Related Projects"
+  url = "/related-projects/"
+  weight = 40
 
 [[social]]
   name = "GitHub"
