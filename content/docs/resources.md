@@ -27,3 +27,4 @@ This page collects external references and internal notes used to design the pla
 
 - [Quickstart](/docs/guides/quickstart/) to run a task and inspect artifacts.
 - [Run artifacts reference](/docs/reference/run-artifacts/) for file-level contract details.
+- [Runtime images](/docs/reference/runtime-images/) for the current quickstart and custom-image model.

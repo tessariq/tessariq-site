@@ -35,7 +35,7 @@ This page defines the practical contract used by operators and automation. All J
 └── runner.log
 ```
 
-Proxy-mode runs also produce `egress.compiled.yaml` (resolved allowlist) and `egress.events.jsonl` (connection log).
+Proxy-mode runs also produce `egress.compiled.yaml` (resolved allowlist) and `egress.events.jsonl` (blocked egress attempts).
 
 ## Files
 
@@ -75,16 +75,16 @@ Invariant: automation should treat this file as the source of truth for run comp
 
 ### `agent.json`
 
-Purpose: agent-specific options as requested and as applied.
+Purpose: agent-specific options as requested and as supported by the selected agent.
 
 Required fields:
 
 - `schema_version`
 - `agent`
 - `requested` (options the user asked for, such as `model` or `interactive`)
-- `applied` (which of those options the agent actually honoured)
+- `supported` (which recorded options the selected agent can honor exactly)
 
-Invariant: when a requested option could not be applied, this file records the gap so operators can detect drift between intent and execution.
+Invariant: when a requested option cannot be honored exactly, this file records that capability gap. This is an agent-capability record, not a replay of every runtime decision.
 
 ### `runtime.json`
 
@@ -96,6 +96,7 @@ Required fields:
 - `image`
 - `image_source`
 - `auth_mount_mode`
+- `auth_mount_count`
 - `agent_config_mount` and `agent_config_mount_status`
 
 Invariant: this file records the execution environment independently of the agent, so operators can reproduce or audit the container state.
@@ -151,7 +152,7 @@ Invariant: used to diagnose infrastructure-level failures separate from task log
 When `resolved_egress_mode` is `proxy`, runs also produce:
 
 - `egress.compiled.yaml` — the fully resolved destination allowlist with provenance.
-- `egress.events.jsonl` — per-connection event log for audit.
+- `egress.events.jsonl` — blocked egress attempts with timestamp, destination, and denial reason.
 
 ## Example snippets
 
@@ -197,7 +198,7 @@ When `resolved_egress_mode` is `proxy`, runs also produce:
     "model": null,
     "interactive": false
   },
-  "applied": {
+  "supported": {
     "model": true,
     "interactive": true
   }
@@ -209,9 +210,10 @@ When `resolved_egress_mode` is `proxy`, runs also produce:
 ```json
 {
   "schema_version": 1,
-  "image": "ghcr.io/tessariq/reference-runtime:v0.1.0",
+  "image": "ghcr.io/tessariq/claude-code:v0.1.0",
   "image_source": "reference",
   "auth_mount_mode": "read-only",
+  "auth_mount_count": 2,
   "agent_config_mount": "disabled",
   "agent_config_mount_status": "disabled"
 }
@@ -239,7 +241,7 @@ Before promotion, enforce at least:
 - `exit_code` is `0`,
 - `diff.patch` is present when change was requested,
 - `diffstat.txt` is within size limits,
-- `agent.json` shows no critical option gaps between requested and applied,
+- `agent.json` shows no critical option gaps between requested and supported,
 - required logs are present for auditability.
 
 For the end-to-end flow, see [Quickstart](/docs/guides/quickstart/).

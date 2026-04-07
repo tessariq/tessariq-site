@@ -47,7 +47,7 @@ Point Tessariq at a task file inside your repository.
 tessariq run tasks/my-task.md
 ```
 
-The run executes in an isolated worktree. Expected output includes the `run_id`, evidence path, and the commands for `attach` and `promote`.
+The run executes in an isolated worktree. By default, Tessariq uses the selected agent's published quickstart image unless you override it with `--image`. Expected output includes the `run_id`, evidence path, and the commands for `attach` and `promote`.
 
 ## 3) Inspect run artifacts
 
@@ -103,6 +103,16 @@ Store run artifacts with the work item or CI records when needed for auditing, d
 
 See [Run artifacts](/docs/reference/run-artifacts/) for file-by-file contract details.
 
+## Common flags
+
+Useful workflow flags beyond the minimal example:
+
+- `--attach` to attach immediately to the new run session.
+- `--interactive` when you want human approval in the agent loop.
+- `--mount-agent-config` to mount the agent's default config directory read-only.
+- `--pre` to run host-side setup commands before the agent starts.
+- `--verify` to run host-side validation commands after the agent finishes.
+
 ## Troubleshooting
 
 ### Run completed but output looks wrong
@@ -111,8 +121,13 @@ Inspect `task.md` and `diff.patch` first. Most early failures are scope mismatch
 
 ### Validation fails locally
 
-Use `run.log` and `runner.log` to compare runtime assumptions (dependencies, environment, network policy) with your local setup. Check `runtime.json` for the image used and `agent.json` for which options were actually applied.
+Use `run.log` and `runner.log` to compare runtime assumptions (dependencies, environment, network policy) with your local setup. Check `runtime.json` for the image used and mount state, and `agent.json` for the requested options and which of them the selected agent supports.
 
 ### No diff produced
 
 Check `status.json` for terminal state and exit code. A `success` state can still produce no changes if the task is ambiguous or already satisfied. `promote` will refuse to create a commit when there is no diff.
+
+## Next steps
+
+- See [Run artifacts](/docs/reference/run-artifacts/) for the evidence contract.
+- See [Runtime images](/docs/reference/runtime-images/) for the quickstart-image and custom-image model.
