@@ -345,6 +345,184 @@ $tq-home-column-outer-max: calc(#{$tq-home-column-max} + (#{$tq-home-column-gutt
     }
 }
 
+// --- Manifesto ---
+.tq-manifesto {
+    padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(3rem, 4vw, 4.5rem);
+}
+
+.tq-manifesto-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--bs-border-color);
+
+    h1 {
+        margin: 0;
+        font-size: clamp(2.25rem, calc(3vw + 1rem), 3.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        max-width: none;
+        text-wrap: balance;
+    }
+}
+
+.tq-manifesto-label {
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $tq-petrol-light;
+
+    [data-bs-theme="dark"] & {
+        color: $tq-petrol-dark;
+    }
+}
+
+.tq-manifesto-lead {
+    margin: 1rem 0 0;
+    max-width: 36rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--bs-secondary-color);
+}
+
+.tq-manifesto-body {
+    max-width: 42rem;
+
+    > p:first-child {
+        font-size: 1.125rem;
+        line-height: 1.8;
+    }
+
+    h2 {
+        margin-top: 2.75rem;
+        margin-bottom: 0.9rem;
+        font-size: 1.25rem;
+        line-height: 1.3;
+    }
+
+    h3 {
+        margin-top: 1.75rem;
+        margin-bottom: 0.55rem;
+        font-size: 1rem;
+        line-height: 1.45;
+    }
+
+    p,
+    li {
+        font-size: 1.02rem;
+        line-height: 1.8;
+    }
+
+    ul {
+        padding-left: 1.15rem;
+    }
+
+    li + li {
+        margin-top: 0.35rem;
+    }
+}
+
+.tq-manifesto-list {
+    display: grid;
+    gap: 0.9rem;
+    margin: 1.1rem 0 0;
+}
+
+.tq-manifesto-item {
+    padding: 0.95rem 0 0 1rem;
+    border-top: 1px solid var(--bs-border-color);
+    border-left: 2px solid rgba($tq-petrol-light, 0.18);
+
+    h3 {
+        margin: 0 0 0.25rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--bs-heading-color, var(--bs-body-color));
+    }
+
+    p {
+        margin: 0;
+        max-width: 38rem;
+        color: var(--bs-secondary-color);
+        font-size: 0.97rem;
+        line-height: 1.7;
+    }
+
+    [data-bs-theme="dark"] & {
+        border-left-color: rgba($tq-petrol-dark, 0.24);
+    }
+}
+
+.tq-manifesto-list-muted {
+    .tq-manifesto-item {
+        border-left-color: var(--bs-border-color);
+    }
+}
+
+.tq-manifesto-principles {
+    display: grid;
+    margin-top: 1.1rem;
+    border-top: 1px solid var(--bs-border-color);
+}
+
+.tq-manifesto-principle {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.tq-manifesto-principle-index {
+    padding-top: 0.1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: rgba($tq-petrol-light, 0.8);
+
+    [data-bs-theme="dark"] & {
+        color: rgba($tq-petrol-dark, 0.85);
+    }
+}
+
+.tq-manifesto-principle-body {
+    h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.45;
+        color: var(--bs-heading-color, var(--bs-body-color));
+    }
+
+    p {
+        margin: 0;
+        max-width: 38rem;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--bs-secondary-color);
+    }
+}
+
+@media (max-width: 991px) {
+    .tq-manifesto-header {
+        h1 {
+            max-width: 12ch;
+        }
+    }
+
+    .tq-manifesto-principle {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+    }
+
+    .tq-manifesto-principle-index {
+        padding-top: 0;
+    }
+}
+
 // --- Theme component alignment ---
 body,
 .main {
